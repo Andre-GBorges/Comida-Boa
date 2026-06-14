@@ -1,0 +1,32 @@
+.menu-placeholder {
+  width: 200px;
+  height: 280px;
+  border: 2px dashed #ced4da;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-placeholder:hover {
+  background-color: #e9ecef;
+}
+
+.menu-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.menu-item {
+  flex: 0 0 auto;
+  width: 200px;
+}
+
+.menu-foto {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}

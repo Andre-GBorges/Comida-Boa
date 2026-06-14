@@ -1,37 +1,69 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/">ComidaBoa</a>
+    <a class="navbar-brand fw-bold text-success fs-3" routerLink="/">ComidaBoa</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-center gap-2">
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+           <a class="nav-link nav-pill" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/indicacoes" routerLinkActive="active">Indicações</a>
+          <a class="nav-link nav-pill" routerLink="/avaliar">Avaliar</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/restaurantes" routerLinkActive="active">Restaurantes</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle btn-descobrir" href="#" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Descobrir
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/restaurantes">Restaurantes</a></li>
+            <li><a class="dropdown-item" routerLink="/indicacoes">Indicações</a></li>
+          </ul>
         </li>
 
         <ng-container *ngIf="usuarioLogado$ | async as usuario; else naoLogado">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/perfil" routerLinkActive="active">Perfil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" (click)="$event.preventDefault(); confirmarLogout()">Deslogar</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle avatar-toggle" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <img [src]="usuario.foto || 'https://placehold.co/32x32?text=:)'"
+                  class="rounded-circle" width="32" height="32" alt="Foto de perfil"
+                  style="object-fit: cover;">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end p-2" style="min-width: 220px;">
+              <li>
+                <a class="dropdown-item d-flex align-items-center gap-2 rounded py-2" routerLink="/perfil">
+                  <img [src]="usuario.foto || 'https://placehold.co/40x40?text=:)'"
+                      class="rounded-circle" width="40" height="40" alt="Foto de perfil"
+                      style="object-fit: cover;">
+                  <div>
+                    <div class="fw-bold">{{ usuario.nome }}</div>
+                    <small class="text-muted">Ver perfil</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item text-danger" href="#"
+                  (click)="$event.preventDefault(); confirmarLogout()">
+                  Deslogar
+                </a>
+              </li>
+            </ul>
           </li>
         </ng-container>
 
         <ng-template #naoLogado>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            <a class="nav-link nav-pill" routerLink="/login">Login</a>
           </li>
         </ng-template>
+
       </ul>
     </div>
   </div>

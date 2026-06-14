@@ -46,4 +46,9 @@ export class AutentificacaoService {
     this.usuarioLogadoSubject.next(null);
     localStorage.removeItem('usuarioLogado');
   }
+
+  atualizarUsuarioLogado(usuario: Usuario): void {
+    this.usuarioLogadoSubject.next(usuario);
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+  }
 }

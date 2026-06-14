@@ -1,0 +1,42 @@
+.navbar-brand {
+  color: #00855a;
+}
+
+.btn-descobrir {
+  border-radius: 50px;
+  padding: 8px 20px !important;
+  transition: background-color 0.2s ease;
+}
+
+.btn-descobrir:hover,
+.btn-descobrir.show {
+  background-color: #e9ecef;
+}
+.dropdown-toggle::after {
+  margin-left: 8px;
+}
+
+.avatar-toggle {
+  border-radius: 50%;
+  padding: 4px !important;
+  transition: background-color 0.2s ease;
+}
+
+.avatar-toggle:hover,
+.avatar-toggle.show {
+  background-color: #e9ecef;
+}
+
+.avatar-toggle::after {
+  display: none;
+}
+
+.nav-pill {
+  border-radius: 50px;
+  padding: 8px 16px !important;
+  transition: background-color 0.2s ease;
+}
+
+.nav-pill:hover {
+  background-color: #e9ecef;
+}

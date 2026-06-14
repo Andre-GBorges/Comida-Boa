@@ -1,1 +1,36 @@
-<p>perfil works!</p>
+<div class="container mt-4" *ngIf="usuario">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img [src]="usuario.foto || 'https://placehold.co/150x150?text=Sem+Foto'"
+           class="rounded-circle mb-3" width="150" height="150" alt="Foto de perfil">
+      <h3>{{ usuario.nome }}</h3>
+      <a routerLink="/editar-perfil" class="btn btn-outline-primary btn-sm mt-2">Editar perfil</a>
+    </div>
+
+    <div class="col-md-8">
+      <h5>Sobre</h5>
+      <p *ngIf="usuario.sobreVoce">{{ usuario.sobreVoce }}</p>
+      <p *ngIf="!usuario.sobreVoce" class="text-muted">Nenhuma informação adicionada ainda.</p>
+
+      <hr>
+
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="mb-0">Avaliações recentes</h5>
+        <a routerLink="/historico" class="btn btn-link btn-sm">Ver histórico completo</a>
+      </div>
+
+      <p *ngIf="avaliacoesRecentes.length === 0" class="text-muted">
+        Você ainda não fez nenhuma avaliação.
+      </p>
+
+      <div class="card mb-2" *ngFor="let avaliacao of avaliacoesRecentes">
+        <div class="card-body">
+          <h6 class="card-title">{{ avaliacao.restauranteNome }}</h6>
+          <app-estrelas [nota]="avaliacao.nota" class="d-block mb-1"></app-estrelas>
+          <p class="card-text">{{ avaliacao.comentario }}</p>
+          <small class="text-muted">{{ avaliacao.data | date:'dd/MM/yyyy' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

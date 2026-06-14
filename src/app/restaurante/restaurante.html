@@ -1,1 +1,98 @@
-<p>restaurante works!</p>
+<div class="container mt-4" *ngIf="restaurante">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <img [src]="restaurante.foto" class="img-fluid rounded mb-2" [alt]="restaurante.nome">
+    </div>
+    <div class="col-md-9">
+      <h2>{{ restaurante.nome }}</h2>
+      <span class="badge bg-secondary mb-2">{{ restaurante.tipo }}</span>
+      <p><strong>Localização:</strong> {{ restaurante.localizacao }}</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row" *ngIf="restaurante.sobreNos">
+    <div class="col-12">
+      <h5>Sobre nós</h5>
+      <p>{{ restaurante.sobreNos }}</p>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+  <div class="col-12">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="mb-0">Menu</h5>
+      <button *ngIf="fotosMenu.length > 0" class="btn btn-outline-primary btn-sm"
+              data-bs-toggle="modal" data-bs-target="#modalFotoMenu">
+        + Adicionar foto do menu
+      </button>
+    </div>
+
+    <button *ngIf="fotosMenu.length === 0" type="button"
+            class="menu-placeholder d-flex align-items-center justify-content-center"
+            data-bs-toggle="modal" data-bs-target="#modalFotoMenu">
+      <span class="fs-1 text-muted">+</span>
+    </button>
+
+   
+    <div *ngIf="fotosMenu.length > 0" class="menu-scroll">
+      <div class="menu-item" *ngFor="let foto of fotosMenu">
+        <img [src]="foto.foto" alt="Foto do menu" class="menu-foto">
+        <small class="text-muted d-block text-center mt-1">{{ foto.data | date:'dd/MM/yyyy' }}</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalFotoMenu" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionar foto do menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Link da foto</label>
+        <input type="text" class="form-control" [(ngModel)]="novaFotoMenuUrl" placeholder="https://...">
+        <div class="text-danger small mt-1" *ngIf="erroFotoMenu">
+          Cole o link de uma imagem.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="adicionarFotoMenu()">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <hr>
+
+  <div class="d-flex justify-content-between align-items-center mb-2">
+  
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <h5 class="mb-0">Avaliações</h5>
+  <a [routerLink]="['/avaliar']" [queryParams]="{restauranteId: restaurante.id}" class="btn btn-outline-primary btn-sm">
+    Avaliar
+  </a>
+</div>
+
+  <p *ngIf="avaliacoes.length === 0" class="text-muted">
+    Esse restaurante ainda não tem avaliações.
+  </p>
+
+  <div class="card mb-2" *ngFor="let avaliacao of avaliacoes">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h6 class="card-title">{{ avaliacao.nomeUsuario }}</h6>
+        <app-estrelas [nota]="avaliacao.nota"></app-estrelas>
+      </div>
+      <p class="card-text">{{ avaliacao.comentario }}</p>
+      <small class="text-muted">{{ avaliacao.data | date:'dd/MM/yyyy' }}</small>
+    </div>
+  </div>
+</div>

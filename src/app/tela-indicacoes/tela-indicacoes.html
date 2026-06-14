@@ -1,1 +1,49 @@
-<p>tela-indicacoes works!</p>
+<div class="container mt-4">
+  <h2 class="mb-1">Indicações</h2>
+  <p class="text-muted">Os restaurantes mais bem avaliados pela nossa comunidade.</p>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Pesquisar restaurante..."
+             [(ngModel)]="termoPesquisa" (input)="filtrar()">
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" [(ngModel)]="tipoSelecionado" (change)="filtrar()">
+        <option value="">Todos os tipos</option>
+        <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+      </select>
+    </div>
+  </div>
+
+  <p *ngIf="restaurantesFiltrados.length === 0" class="text-muted">
+    Nenhum restaurante encontrado.
+  </p>
+
+  <div class="list-group">
+    <a [routerLink]="['/restaurante', restaurante.id]"
+       class="list-group-item list-group-item-action d-flex align-items-center"
+       *ngFor="let restaurante of restaurantesFiltrados; let i = index">
+
+      <span class="fw-bold me-3" style="width: 30px;">#{{ i + 1 }}</span>
+
+      <img [src]="restaurante.foto" [alt]="restaurante.nome" width="60" height="60"
+           class="rounded me-3" style="object-fit: cover;">
+
+      <div class="flex-grow-1">
+        <h6 class="mb-0">{{ restaurante.nome }}</h6>
+        <small class="text-muted">{{ restaurante.tipo }} - {{ restaurante.localizacao }}</small>
+      </div>
+
+      <div class="text-end">
+        <div *ngIf="restaurante.totalAvaliacoes > 0">
+          <app-estrelas [nota]="restaurante.mediaAvaliacoes"></app-estrelas>
+          <small class="text-muted">({{ restaurante.mediaAvaliacoes.toFixed(1) }})</small>
+        </div>
+        <span class="badge bg-secondary" *ngIf="restaurante.totalAvaliacoes === 0">
+          Sem avaliações
+        </span>
+        <div><small class="text-muted">{{ restaurante.totalAvaliacoes }} avaliação(ões)</small></div>
+      </div>
+    </a>
+  </div>
+</div>

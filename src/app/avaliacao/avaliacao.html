@@ -1,0 +1,99 @@
+<div class="container mt-4" style="max-width: 700px;">
+
+  <div *ngIf="!restauranteSelecionado">
+    <h2 class="mb-1">Faça uma avaliação</h2>
+    <p class="text-muted mb-4">Relatos como o seu ajudam outros usuários a escolherem melhor.</p>
+
+    <input type="text" class="form-control mb-3" placeholder="O que você quer avaliar?"
+           [(ngModel)]="termoPesquisa" (input)="buscar()">
+
+    <div *ngIf="resultados.length > 0" class="list-group">
+      <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
+              *ngFor="let restaurante of resultados" (click)="selecionarRestaurante(restaurante)">
+        <img [src]="restaurante.foto" [alt]="restaurante.nome" width="50" height="50"
+             class="rounded me-3" style="object-fit: cover;">
+        <div>
+          <div class="fw-bold">{{ restaurante.nome }}</div>
+          <small class="text-muted">{{ restaurante.localizacao }}</small>
+        </div>
+      </button>
+    </div>
+
+    <div *ngIf="buscou && resultados.length === 0" class="text-center mt-4">
+      <p class="text-muted">Nenhum restaurante encontrado com esse nome.</p>
+      <a routerLink="/adicionar-restaurante" class="btn btn-primary">
+        + Adicionar um novo restaurante
+      </a>
+    </div>
+  </div>
+
+
+  <div *ngIf="restauranteSelecionado">
+
+    
+
+    <h2 class="mb-3">Como foi a visita?</h2>
+
+    <a [routerLink]="['/restaurante', restauranteSelecionado.id]" target="_blank"
+       class="card mb-4 text-decoration-none text-dark" style="max-width: 350px;">
+      <div class="d-flex">
+        <img [src]="restauranteSelecionado.foto" [alt]="restauranteSelecionado.nome"
+             width="100" height="100" style="object-fit: cover;" class="rounded-start">
+        <div class="card-body">
+          <h6 class="card-title mb-1">{{ restauranteSelecionado.nome }}</h6>
+          <small class="text-muted">{{ restauranteSelecionado.localizacao }}</small>
+        </div>
+      </div>
+    </a>
+
+    <div *ngIf="enviado" class="alert alert-success">
+      Avaliação enviada com sucesso! Obrigado por compartilhar sua experiência.
+      <div class="mt-2">
+        <a [routerLink]="['/restaurante', restauranteSelecionado.id]" class="btn btn-sm btn-outline-success">
+          Ver restaurante
+        </a>
+      </div>
+    </div>
+
+    <form *ngIf="!enviado" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="alert alert-danger" *ngIf="erroGeral">
+        Ocorreu um erro ao enviar sua avaliação. Tente novamente.
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-bold">Como você avalia este restaurante? *</label>
+        <div class="d-flex gap-1">
+          <button type="button" *ngFor="let valor of [1,2,3,4,5]"
+                  class="btn btn-link p-0 border-0"
+                  (click)="selecionarNota(valor)">
+            <i class="bi fs-2"
+              [ngClass]="form.value.nota >= valor ? 'bi-star-fill text-warning' : 'bi-star text-muted'"></i>
+          </button>
+        </div>
+        <div class="text-danger mt-1" *ngIf="form.get('nota')?.invalid && form.get('nota')?.touched">
+          Selecione uma nota.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Quando ocorreu sua experiência? *</label>
+        <input type="date" class="form-control" formControlName="data" style="max-width: 220px;">
+        <div class="text-danger" *ngIf="form.get('data')?.invalid && form.get('data')?.touched">
+          Selecione a data da sua visita.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Escreva sua avaliação *</label>
+        <textarea class="form-control" formControlName="comentario" rows="4" placeholder="Conte sua experiência..."></textarea>
+        <div class="text-danger" *ngIf="form.get('comentario')?.invalid && form.get('comentario')?.touched">
+          Conte como foi sua experiência.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Enviar avaliação</button>
+    </form>
+  </div>
+
+</div>

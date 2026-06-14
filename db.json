@@ -1,4 +1,3 @@
-
 {
   "restaurantes": [
     {
@@ -13,7 +12,7 @@
     {
       "id": 2,
       "nome": "Sushi Kazu",
-      "foto": "https://placehold.co/200x200?text=Sushi+Kazu",
+      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD-gp8IpnTd9n-4d9EqvWQewWiFlH7hETptySCoHFyTw&s=10",
       "sobreNos": "Sushi bar com peixes frescos selecionados diariamente.",
       "localizacao": "Av. Afonso Pena, 1500 - Centro, Belo Horizonte",
       "menuFoto": "https://placehold.co/400x600?text=Menu",
@@ -45,6 +44,15 @@
       "localizacao": "Rua Tomé de Souza, 300 - Savassi, Belo Horizonte",
       "menuFoto": "https://placehold.co/400x600?text=Menu",
       "tipo": "Hamburgueria"
+    },
+    {
+      "nome": "Bar do paulao",
+      "foto": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEOr0Ov7O-cyXbrwyHSl-9EXbhRSKwWZrNDBUiQgcU-PmmNgJ6g47zYf9X8Peeo9hOd8xlJep4dcoAGYYKmyt4A7fXx7R0cRMKI7FhyqbVXkZhMILOmRlG3in04AkDSxUwInwvn=s680-w680-h510-rw",
+      "localizacao": "Rua do padre 123 bairro da gloria Belo Horizonte",
+      "tipo": "Brasileira",
+      "sobreNos": "",
+      "menuFoto": "",
+      "id": 6
     }
   ],
   "usuarios": [
@@ -52,7 +60,7 @@
       "id": 1,
       "nome": "André Borges",
       "senha": "123",
-      "foto": "https://placehold.co/150x150?text=Andre",
+      "foto": "https://static.wikia.nocookie.net/herois/images/f/f5/Eddy.webp/revision/latest?cb=20230124231058&path-prefix=pt-br",
       "sobreVoce": "Apaixonado por comida, sempre em busca de novos lugares pra comer em BH."
     },
     {
@@ -68,18 +76,142 @@
       "senha": "123",
       "foto": "https://placehold.co/150x150?text=Joao",
       "sobreVoce": ""
+    },
+    {
+      "nome": "Juliano",
+      "senha": "123",
+      "foto": "https://pbs.twimg.com/media/HKyqHhfWYAAf7ty?format=png&name=small",
+      "sobreVoce": "fan da selecao de curacao, o gigante do caribe",
+      "id": 4
+    },
+    {
+      "nome": "Fabinho",
+      "senha": "123",
+      "foto": "https://pbs.twimg.com/media/HKuxPfCXEAAp-cQ?format=jpg&name=900x900",
+      "sobreVoce": "Volante do brasil",
+      "id": 5
     }
   ],
   "avaliacoes": [
-    { "id": 1, "restauranteId": 1, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 5, "comentario": "Massa fresca e atendimento excelente!", "data": "2026-06-01" },
-    { "id": 2, "restauranteId": 1, "usuarioId": 2, "nomeUsuario": "Maria Silva", "nota": 4, "comentario": "Ambiente acolhedor, mas demorou um pouco para servir.", "data": "2026-06-05" },
-    { "id": 3, "restauranteId": 2, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 5, "comentario": "Sushi muito fresco, voltarei com certeza!", "data": "2026-06-03" },
-    { "id": 4, "restauranteId": 2, "usuarioId": 3, "nomeUsuario": "João Pedro", "nota": 3, "comentario": "Bom, mas o preço é salgado para a quantidade.", "data": "2026-06-07" },
-    { "id": 5, "restauranteId": 3, "usuarioId": 2, "nomeUsuario": "Maria Silva", "nota": 5, "comentario": "Melhor pizza da cidade, massa fininha perfeita.", "data": "2026-06-02" },
-    { "id": 6, "restauranteId": 3, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 4, "comentario": "Muito boa, mas o atendimento pode melhorar.", "data": "2026-06-08" },
-    { "id": 7, "restauranteId": 4, "usuarioId": 3, "nomeUsuario": "João Pedro", "nota": 5, "comentario": "Carnes maravilhosas, vale cada centavo.", "data": "2026-06-04" },
-    { "id": 8, "restauranteId": 4, "usuarioId": 2, "nomeUsuario": "Maria Silva", "nota": 2, "comentario": "Esperei muito tempo para ser atendido.", "data": "2026-06-09" },
-    { "id": 9, "restauranteId": 5, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 4, "comentario": "Hambúrguer suculento, recomendo o cheddar bacon.", "data": "2026-06-06" },
-    { "id": 10, "restauranteId": 5, "usuarioId": 3, "nomeUsuario": "João Pedro", "nota": 4, "comentario": "Bom custo-benefício, porções generosas.", "data": "2026-06-10" }
-  ]
+    {
+      "id": 1,
+      "restauranteId": 1,
+      "usuarioId": 1,
+      "nomeUsuario": "André Borges",
+      "nota": 5,
+      "comentario": "Massa fresca e atendimento excelente!",
+      "data": "2026-06-14"
+    },
+    {
+      "id": 2,
+      "restauranteId": 1,
+      "usuarioId": 2,
+      "nomeUsuario": "Maria Silva",
+      "nota": 4,
+      "comentario": "Ambiente acolhedor, mas demorou um pouco para servir.",
+      "data": "2026-06-05"
+    },
+    {
+      "id": 3,
+      "restauranteId": 2,
+      "usuarioId": 1,
+      "nomeUsuario": "André Borges",
+      "nota": 5,
+      "comentario": "Sushi muito fresco, voltarei com certeza!",
+      "data": "2026-05-26"
+    },
+    {
+      "id": 4,
+      "restauranteId": 2,
+      "usuarioId": 3,
+      "nomeUsuario": "João Pedro",
+      "nota": 3,
+      "comentario": "Bom, mas o preço é salgado para a quantidade.",
+      "data": "2026-06-02"
+    },
+    {
+      "id": 5,
+      "restauranteId": 3,
+      "usuarioId": 2,
+      "nomeUsuario": "Maria Silva",
+      "nota": 5,
+      "comentario": "Melhor pizza da cidade, massa fininha perfeita.",
+      "data": "2026-06-10"
+    },
+    {
+      "id": 6,
+      "restauranteId": 3,
+      "usuarioId": 1,
+      "nomeUsuario": "André Borges",
+      "nota": 4,
+      "comentario": "Muito boa, mas o atendimento pode melhorar.",
+      "data": "2026-02-26"
+    },
+    {
+      "id": 7,
+      "restauranteId": 4,
+      "usuarioId": 3,
+      "nomeUsuario": "João Pedro",
+      "nota": 5,
+      "comentario": "Carnes maravilhosas, vale cada centavo.",
+      "data": "2026-06-04"
+    },
+    {
+      "id": 8,
+      "restauranteId": 4,
+      "usuarioId": 2,
+      "nomeUsuario": "Maria Silva",
+      "nota": 2,
+      "comentario": "Esperei muito tempo para ser atendido.",
+      "data": "2026-06-09"
+    },
+    {
+      "id": 9,
+      "restauranteId": 5,
+      "usuarioId": 1,
+      "nomeUsuario": "André Borges",
+      "nota": 4,
+      "comentario": "Hambúrguer suculento, recomendo o cheddar bacon.",
+      "data": "2026-06-06"
+    },
+    {
+      "id": 10,
+      "restauranteId": 5,
+      "usuarioId": 3,
+      "nomeUsuario": "João Pedro",
+      "nota": 4,
+      "comentario": "Bom custo-benefício, porções generosas.",
+      "data": "2026-06-10"
+    },
+    {
+      "restauranteId": 6,
+      "usuarioId": 5,
+      "nomeUsuario": "Fabinho",
+      "nota": 1,
+      "comentario": "Meio campo da brasil contra marrocos estava uma vergonha, aposenta casemiro",
+      "data": "2026-06-14",
+      "id": 11
+    },
+    {
+      "restauranteId": 3,
+      "usuarioId": 5,
+      "nomeUsuario": "Fabinho",
+      "nota": 5,
+      "comentario": "Pizza muito boa, fui com a familia e adorei!!!\n",
+      "data": "2026-06-14",
+      "id": 12
+    },
+    {
+      "restauranteId": 2,
+      "usuarioId": 5,
+      "nomeUsuario": "Fabinho",
+      "nota": 4,
+      "comentario": "Ambiente daora, minha esposa gostou muito haha!",
+      "data": "2026-06-12",
+      "id": 13
+    }
+  ],
+  "fotosMenu": [{
+
+  }]
 }

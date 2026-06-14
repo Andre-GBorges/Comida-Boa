@@ -10,6 +10,7 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil';
 import { HistoricoComponent } from './historico/historico';
 import { TelaIndicacoesComponent } from './tela-indicacoes/tela-indicacoes';
 import { RestaurantePertoComponent } from './restaurante-perto/restaurante-perto';
+import { AvaliacaoComponent } from './avaliacao/avaliacao';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,5 +24,6 @@ export const routes: Routes = [
   { path: 'historico', component: HistoricoComponent },
   { path: 'indicacoes', component: TelaIndicacoesComponent },
   { path: 'restaurantes-perto', component: RestaurantePertoComponent },
+  { path: 'avaliar', component: AvaliacaoComponent },
   { path: '**', redirectTo: '' }
 ];

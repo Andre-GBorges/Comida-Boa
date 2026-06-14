@@ -1,1 +1,36 @@
-<p>editar-perfil works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="mb-4">Editar Perfil</h2>
+
+      <div class="alert alert-success" *ngIf="sucesso">
+        Perfil atualizado com sucesso!
+      </div>
+      <div class="alert alert-danger" *ngIf="erroGeral">
+        Ocorreu um erro ao atualizar o perfil. Tente novamente.
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-control" formControlName="nome">
+          <div class="text-danger" *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">
+            Nome é obrigatório.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Foto (URL da imagem)</label>
+          <input type="text" class="form-control" formControlName="foto" placeholder="coloque link da imagem">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Sobre você</label>
+          <textarea class="form-control" formControlName="sobreVoce" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Salvar</button>
+      </form>
+    </div>
+  </div>
+</div>

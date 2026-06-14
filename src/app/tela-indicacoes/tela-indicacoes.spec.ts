@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TelaIndicacoes } from './tela-indicacoes';
+import { TelaIndicacoesComponent } from './tela-indicacoes';
 
 describe('TelaIndicacoes', () => {
-  let component: TelaIndicacoes;
-  let fixture: ComponentFixture<TelaIndicacoes>;
+  let component: TelaIndicacoesComponent;
+  let fixture: ComponentFixture<TelaIndicacoesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TelaIndicacoes]
+      imports: [TelaIndicacoesComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TelaIndicacoes);
+    fixture = TestBed.createComponent(TelaIndicacoesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

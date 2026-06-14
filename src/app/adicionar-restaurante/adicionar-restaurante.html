@@ -1,1 +1,87 @@
-<p>adicionar-restaurante works!</p>
+<div class="container mt-4">
+  <h2 class="mb-4">Adicionar Restaurante</h2>
+
+  <div class="alert alert-danger" *ngIf="erroGeral">
+    Ocorreu um erro ao cadastrar o restaurante. Tente novamente.
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <h5>Dados do restaurante</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Nome do restaurante *</label>
+      <input type="text" class="form-control" formControlName="nome">
+      <div class="text-danger" *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">
+        Nome é obrigatório.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Foto / Logo (URL) *</label>
+      <input type="text" class="form-control" formControlName="foto" placeholder="https://...">
+      <div class="text-danger" *ngIf="form.get('foto')?.invalid && form.get('foto')?.touched">
+        Foto é obrigatória.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Localização *</label>
+      <input type="text" class="form-control" formControlName="localizacao" placeholder="Endereço completo">
+      <div class="text-danger" *ngIf="form.get('localizacao')?.invalid && form.get('localizacao')?.touched">
+        Localização é obrigatória.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Tipo de restaurante *</label>
+      <select class="form-select" formControlName="tipo">
+        <option value="" disabled>Selecione...</option>
+        <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+      </select>
+      <div class="text-danger" *ngIf="form.get('tipo')?.invalid && form.get('tipo')?.touched">
+        Selecione o tipo do restaurante.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Sobre nós (opcional)</label>
+      <textarea class="form-control" formControlName="sobreNos" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Foto do menu (opcional, URL)</label>
+      <input type="text" class="form-control" formControlName="menuFoto" placeholder="https://...">
+    </div>
+
+    <hr>
+
+    <h5>Sua avaliação</h5>
+    <p class="text-muted">Como você está cadastrando esse restaurante, conte como foi sua experiência.</p>
+
+    <div class="mb-3">
+      <label class="form-label">Nota *</label>
+      <select class="form-select" formControlName="nota">
+        <option value="" disabled>Selecione...</option>
+        <option value="1">1 - Péssimo</option>
+        <option value="2">2 - Ruim</option>
+        <option value="3">3 - Regular</option>
+        <option value="4">4 - Bom</option>
+        <option value="5">5 - Excelente</option>
+      </select>
+      <div class="text-danger" *ngIf="form.get('nota')?.invalid && form.get('nota')?.touched">
+        Selecione uma nota.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Comentário *</label>
+      <textarea class="form-control" formControlName="comentario" rows="3"></textarea>
+      <div class="text-danger" *ngIf="form.get('comentario')?.invalid && form.get('comentario')?.touched">
+        Conte sua experiência.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar restaurante</button>
+  </form>
+</div>
