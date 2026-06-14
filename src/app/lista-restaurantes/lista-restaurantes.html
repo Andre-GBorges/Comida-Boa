@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2>Restaurantes</h2>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Pesquisar restaurante..."
+             [(ngModel)]="termoPesquisa" (input)="buscar()">
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" [(ngModel)]="tipoSelecionado" (change)="buscar()">
+        <option value="">Todos os tipos</option>
+        <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let restaurante of restaurantes">
+      <div class="card h-100">
+        <img [src]="restaurante.foto" class="card-img-top" [alt]="restaurante.nome">
+        <div class="card-body">
+          <h5 class="card-title">{{ restaurante.nome }}</h5>
+          <p class="card-text">{{ restaurante.tipo }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p *ngIf="restaurantes.length === 0">Nenhum restaurante encontrado.</p>
+</div>

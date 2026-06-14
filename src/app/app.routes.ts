@@ -1,3 +1,27 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home';
+import { LoginComponent } from './login/login';
+import { CadastroComponent } from './cadastro/cadastro';
+import { ListaRestaurantesComponent } from './lista-restaurantes/lista-restaurantes';
+import { RestauranteComponent } from './restaurante/restaurante';
+import { AdicionarRestauranteComponent } from './adicionar-restaurante/adicionar-restaurante';
+import { PerfilComponent } from './perfil/perfil';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil';
+import { HistoricoComponent } from './historico/historico';
+import { TelaIndicacoesComponent } from './tela-indicacoes/tela-indicacoes';
+import { RestaurantePertoComponent } from './restaurante-perto/restaurante-perto';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
+  { path: 'restaurantes', component: ListaRestaurantesComponent },
+  { path: 'restaurante/:id', component: RestauranteComponent },
+  { path: 'adicionar-restaurante', component: AdicionarRestauranteComponent },
+  { path: 'perfil', component: PerfilComponent },
+  { path: 'editar-perfil', component: EditarPerfilComponent },
+  { path: 'historico', component: HistoricoComponent },
+  { path: 'indicacoes', component: TelaIndicacoesComponent },
+  { path: 'restaurantes-perto', component: RestaurantePertoComponent },
+  { path: '**', redirectTo: '' }
+];

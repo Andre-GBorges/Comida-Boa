@@ -1,5 +1,85 @@
+
 {
-    "restaurantes": [],
-    "usuarios": [],
-    "avaliacoes": []
+  "restaurantes": [
+    {
+      "id": 1,
+      "nome": "Cantina Bella Napoli",
+      "foto": "https://placehold.co/200x200?text=Bella+Napoli",
+      "sobreNos": "Tradição italiana em Belo Horizonte desde 1995, com receitas de família.",
+      "localizacao": "Rua Pernambuco, 123 - Funcionários, Belo Horizonte",
+      "menuFoto": "https://placehold.co/400x600?text=Menu",
+      "tipo": "Italiana"
+    },
+    {
+      "id": 2,
+      "nome": "Sushi Kazu",
+      "foto": "https://placehold.co/200x200?text=Sushi+Kazu",
+      "sobreNos": "Sushi bar com peixes frescos selecionados diariamente.",
+      "localizacao": "Av. Afonso Pena, 1500 - Centro, Belo Horizonte",
+      "menuFoto": "https://placehold.co/400x600?text=Menu",
+      "tipo": "Japonesa"
+    },
+    {
+      "id": 3,
+      "nome": "Pizzaria Vera Napoli",
+      "foto": "https://placehold.co/200x200?text=Vera+Napoli",
+      "sobreNos": "",
+      "localizacao": "Rua Padre Eustáquio, 800 - Padre Eustáquio, Belo Horizonte",
+      "menuFoto": "",
+      "tipo": "Pizzaria"
+    },
+    {
+      "id": 4,
+      "nome": "Churrascaria Boi Gordo",
+      "foto": "https://placehold.co/200x200?text=Boi+Gordo",
+      "sobreNos": "Rodízio de carnes nobres com mais de 20 cortes.",
+      "localizacao": "Av. do Contorno, 5000 - Savassi, Belo Horizonte",
+      "menuFoto": "",
+      "tipo": "Churrascaria"
+    },
+    {
+      "id": 5,
+      "nome": "Burger House",
+      "foto": "https://placehold.co/200x200?text=Burger+House",
+      "sobreNos": "Hambúrgueres artesanais com pão e molhos feitos na casa.",
+      "localizacao": "Rua Tomé de Souza, 300 - Savassi, Belo Horizonte",
+      "menuFoto": "https://placehold.co/400x600?text=Menu",
+      "tipo": "Hamburgueria"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "André Borges",
+      "senha": "123",
+      "foto": "https://placehold.co/150x150?text=Andre",
+      "sobreVoce": "Apaixonado por comida, sempre em busca de novos lugares pra comer em BH."
+    },
+    {
+      "id": 2,
+      "nome": "Maria Silva",
+      "senha": "123",
+      "foto": "https://placehold.co/150x150?text=Maria",
+      "sobreVoce": "Crítica gastronômica nas horas vagas."
+    },
+    {
+      "id": 3,
+      "nome": "João Pedro",
+      "senha": "123",
+      "foto": "https://placehold.co/150x150?text=Joao",
+      "sobreVoce": ""
+    }
+  ],
+  "avaliacoes": [
+    { "id": 1, "restauranteId": 1, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 5, "comentario": "Massa fresca e atendimento excelente!", "data": "2026-06-01" },
+    { "id": 2, "restauranteId": 1, "usuarioId": 2, "nomeUsuario": "Maria Silva", "nota": 4, "comentario": "Ambiente acolhedor, mas demorou um pouco para servir.", "data": "2026-06-05" },
+    { "id": 3, "restauranteId": 2, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 5, "comentario": "Sushi muito fresco, voltarei com certeza!", "data": "2026-06-03" },
+    { "id": 4, "restauranteId": 2, "usuarioId": 3, "nomeUsuario": "João Pedro", "nota": 3, "comentario": "Bom, mas o preço é salgado para a quantidade.", "data": "2026-06-07" },
+    { "id": 5, "restauranteId": 3, "usuarioId": 2, "nomeUsuario": "Maria Silva", "nota": 5, "comentario": "Melhor pizza da cidade, massa fininha perfeita.", "data": "2026-06-02" },
+    { "id": 6, "restauranteId": 3, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 4, "comentario": "Muito boa, mas o atendimento pode melhorar.", "data": "2026-06-08" },
+    { "id": 7, "restauranteId": 4, "usuarioId": 3, "nomeUsuario": "João Pedro", "nota": 5, "comentario": "Carnes maravilhosas, vale cada centavo.", "data": "2026-06-04" },
+    { "id": 8, "restauranteId": 4, "usuarioId": 2, "nomeUsuario": "Maria Silva", "nota": 2, "comentario": "Esperei muito tempo para ser atendido.", "data": "2026-06-09" },
+    { "id": 9, "restauranteId": 5, "usuarioId": 1, "nomeUsuario": "André Borges", "nota": 4, "comentario": "Hambúrguer suculento, recomendo o cheddar bacon.", "data": "2026-06-06" },
+    { "id": 10, "restauranteId": 5, "usuarioId": 3, "nomeUsuario": "João Pedro", "nota": 4, "comentario": "Bom custo-benefício, porções generosas.", "data": "2026-06-10" }
+  ]
 }

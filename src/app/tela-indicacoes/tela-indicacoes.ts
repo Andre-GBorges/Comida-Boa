@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './tela-indicacoes.html',
   styleUrl: './tela-indicacoes.css',
 })
-export class TelaIndicacoes {
+export class TelaIndicacoesComponent {
 
 }
