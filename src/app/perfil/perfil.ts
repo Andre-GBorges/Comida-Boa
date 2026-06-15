@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AutentificacaoService } from '../services/autentificacao';
 import { AvaliacoesService } from '../services/avaliacoes';
 import { RestaurantesService } from '../services/restaurantes';
@@ -23,8 +23,10 @@ interface AvaliacaoComRestaurante extends Avaliacao {
 export class PerfilComponent implements OnInit {
   usuario: Usuario | null = null;
   avaliacoesRecentes: AvaliacaoComRestaurante[] = [];
+  mostrarSucesso: boolean = false;
 
   constructor(
+    private route: ActivatedRoute,
     private autenticacaoService: AutentificacaoService,
     private avaliacoesService: AvaliacoesService,
     private restaurantesService: RestaurantesService,
@@ -40,6 +42,11 @@ export class PerfilComponent implements OnInit {
     }
 
     this.carregarAvaliacoesRecentes();
+
+    if (this.route.snapshot.queryParamMap.get('sucesso')) {
+      this.mostrarSucesso = true;
+      setTimeout(() => this.mostrarSucesso = false, 3000);
+    }
   }
 
   carregarAvaliacoesRecentes(): void {
@@ -49,11 +56,10 @@ export class PerfilComponent implements OnInit {
       avaliacoes: this.avaliacoesService.getByUsuario(this.usuario.id),
       restaurantes: this.restaurantesService.getAll()
     }).subscribe(({ avaliacoes, restaurantes }) => {
-      // mapa id -> nome do restaurante, pra busca rapida
       const mapaRestaurantes = new Map(restaurantes.map(r => [r.id, r.nome]));
 
       this.avaliacoesRecentes = avaliacoes
-        .sort((a, b) => b.data.localeCompare(a.data)) // mais recente primeiro
+        .sort((a, b) => b.data.localeCompare(a.data))
         .slice(0, 3)
         .map(av => ({
           ...av,

@@ -57,7 +57,7 @@ export class EditarPerfilComponent implements OnInit {
       return;
     }
 
-    // mantém senha e id, só atualiza os campos do formulário
+  
     const dadosAtualizados = {
       ...this.autenticacaoService.usuarioAtual,
       ...this.form.value
@@ -66,7 +66,7 @@ export class EditarPerfilComponent implements OnInit {
     this.usuariosService.update(this.usuarioId, dadosAtualizados).subscribe({
       next: (usuarioAtualizado) => {
         this.autenticacaoService.atualizarUsuarioLogado(usuarioAtualizado);
-        this.sucesso = true;
+        this.router.navigate(['/perfil'], { queryParams: { sucesso: '1' } });
       },
       error: () => this.erroGeral = true
     });

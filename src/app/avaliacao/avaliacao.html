@@ -4,7 +4,7 @@
     <h2 class="mb-1">Faça uma avaliação</h2>
     <p class="text-muted mb-4">Relatos como o seu ajudam outros usuários a escolherem melhor.</p>
 
-    <input type="text" class="form-control mb-3" placeholder="O que você quer avaliar?"
+    <input type="text" class="form-control mb-3" placeholder="Qual restaurante você quer avaliar?"
            [(ngModel)]="termoPesquisa" (input)="buscar()">
 
     <div *ngIf="resultados.length > 0" class="list-group">

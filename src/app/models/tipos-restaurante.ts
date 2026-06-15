@@ -8,5 +8,6 @@ export const TIPOS_RESTAURANTE: string[] = [
   'Brasileira',
   'Vegetariana',
   'Cafeteria',
+  'Frutos do mar',
   'Outro'
 ];

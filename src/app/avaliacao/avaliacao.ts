@@ -15,12 +15,12 @@ import { Restaurante } from '../models/restaurante.model';
   styleUrl: './avaliacao.css'
 })
 export class AvaliacaoComponent implements OnInit {
-  // etapa 1: busca
+
   termoPesquisa: string = '';
   resultados: Restaurante[] = [];
   buscou: boolean = false;
 
-  // etapa 2: avaliacao
+
   restauranteSelecionado: Restaurante | null = null;
   form: FormGroup;
   enviado: boolean = false;
@@ -43,11 +43,11 @@ export class AvaliacaoComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.autenticacaoService.isLogado()) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
       return;
     }
 
-    // se veio de um botao "Avaliar" dentro de um restaurante especifico, pula a busca
+  
     const restauranteId = this.route.snapshot.queryParamMap.get('restauranteId');
     if (restauranteId) {
       this.restaurantesService.getById(Number(restauranteId)).subscribe(restaurante => {

@@ -3,10 +3,9 @@
     {
       "id": 1,
       "nome": "Cantina Bella Napoli",
-      "foto": "https://placehold.co/200x200?text=Bella+Napoli",
+      "foto": "https://www.galbani.com.br/wp-content/uploads/2024/10/culinaria-italiana.jpg",
       "sobreNos": "Tradição italiana em Belo Horizonte desde 1995, com receitas de família.",
       "localizacao": "Rua Pernambuco, 123 - Funcionários, Belo Horizonte",
-      "menuFoto": "https://placehold.co/400x600?text=Menu",
       "tipo": "Italiana"
     },
     {
@@ -15,34 +14,30 @@
       "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD-gp8IpnTd9n-4d9EqvWQewWiFlH7hETptySCoHFyTw&s=10",
       "sobreNos": "Sushi bar com peixes frescos selecionados diariamente.",
       "localizacao": "Av. Afonso Pena, 1500 - Centro, Belo Horizonte",
-      "menuFoto": "https://placehold.co/400x600?text=Menu",
       "tipo": "Japonesa"
     },
     {
       "id": 3,
       "nome": "Pizzaria Vera Napoli",
-      "foto": "https://placehold.co/200x200?text=Vera+Napoli",
+      "foto": "https://static.itdg.com.br/images/640-400/47d6583c93d77edac5244cab67ba660b/253447-378226756-original.jpg",
       "sobreNos": "",
       "localizacao": "Rua Padre Eustáquio, 800 - Padre Eustáquio, Belo Horizonte",
-      "menuFoto": "",
       "tipo": "Pizzaria"
     },
     {
       "id": 4,
       "nome": "Churrascaria Boi Gordo",
-      "foto": "https://placehold.co/200x200?text=Boi+Gordo",
+      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjEXz-6tJZqdWSCEpyvbyC7pzMlTXQuBcr0dkAerUYAK1GHVjK7moH8Ih5&s=10",
       "sobreNos": "Rodízio de carnes nobres com mais de 20 cortes.",
       "localizacao": "Av. do Contorno, 5000 - Savassi, Belo Horizonte",
-      "menuFoto": "",
       "tipo": "Churrascaria"
     },
     {
       "id": 5,
       "nome": "Burger House",
-      "foto": "https://placehold.co/200x200?text=Burger+House",
+      "foto": "https://www.sabornamesa.com.br/media/k2/items/cache/bf1e20a4462b71e3cc4cece2a8c96ac8_XL.jpg",
       "sobreNos": "Hambúrgueres artesanais com pão e molhos feitos na casa.",
       "localizacao": "Rua Tomé de Souza, 300 - Savassi, Belo Horizonte",
-      "menuFoto": "https://placehold.co/400x600?text=Menu",
       "tipo": "Hamburgueria"
     },
     {
@@ -51,14 +46,21 @@
       "localizacao": "Rua do padre 123 bairro da gloria Belo Horizonte",
       "tipo": "Brasileira",
       "sobreNos": "",
-      "menuFoto": "",
       "id": 6
+    },
+    {
+      "nome": "Chico do peixe",
+      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8knZFa4z32aW82euHjKz5THPBSkSQ8UNjtwNuukhFLCfhzBFlNeNzD_U&s=10",
+      "localizacao": "R. Pitangui, 11 - Concórdia, Belo Horizonte - MG, 31110-732",
+      "tipo": "Frutos do mar",
+      "sobreNos": "",
+      "id": 7
     }
   ],
   "usuarios": [
     {
       "id": 1,
-      "nome": "André Borges",
+      "nome": "dede",
       "senha": "123",
       "foto": "https://static.wikia.nocookie.net/herois/images/f/f5/Eddy.webp/revision/latest?cb=20230124231058&path-prefix=pt-br",
       "sobreVoce": "Apaixonado por comida, sempre em busca de novos lugares pra comer em BH."
@@ -90,6 +92,13 @@
       "foto": "https://pbs.twimg.com/media/HKuxPfCXEAAp-cQ?format=jpg&name=900x900",
       "sobreVoce": "Volante do brasil",
       "id": 5
+    },
+    {
+      "nome": "Kleber",
+      "senha": "123",
+      "foto": "https://f.i.uol.com.br/fotografia/2016/02/12/587192-400x600-1.jpeg",
+      "sobreVoce": "ta tranquilo :p\n",
+      "id": 6
     }
   ],
   "avaliacoes": [
@@ -209,9 +218,51 @@
       "comentario": "Ambiente daora, minha esposa gostou muito haha!",
       "data": "2026-06-12",
       "id": 13
+    },
+    {
+      "restauranteId": 4,
+      "usuarioId": 5,
+      "nomeUsuario": "Fabinho",
+      "nota": 4,
+      "comentario": "Muito boa as criancas gostaram hahaha!!!",
+      "data": "2026-05-05",
+      "id": 14
+    },
+    {
+      "restauranteId": 6,
+      "usuarioId": 6,
+      "nomeUsuario": "kleber",
+      "nota": 4,
+      "comentario": "COMIDA boa, boa localizacao ja sabe e sucesso paizao!!!",
+      "data": "2026-06-10",
+      "id": 15
+    },
+    {
+      "restauranteId": 5,
+      "usuarioId": 6,
+      "nomeUsuario": "kleber",
+      "nota": 3,
+      "comentario": "demorei pra ser atendido, demorou pra chegar e o podrao tava bom mas sacanagem com o consumidor esse servico ai tlg.",
+      "data": "2026-06-15",
+      "id": 16
+    },
+    {
+      "restauranteId": 7,
+      "usuarioId": 6,
+      "nomeUsuario": "kleber",
+      "nota": 5,
+      "comentario": "De segunda a terca tem uma porcao de tilapia por 35 muito boa e que vem muito peixe adorei!",
+      "data": "2026-06-15",
+      "id": 17
+    },
+    {
+      "restauranteId": 3,
+      "usuarioId": 6,
+      "nomeUsuario": "Kleber",
+      "nota": 4,
+      "comentario": "pizzaria boa de levar a gata",
+      "data": "2026-05-08",
+      "id": 18
     }
-  ],
-  "fotosMenu": [{
-
-  }]
+  ]
 }

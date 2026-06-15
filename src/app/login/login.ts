@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AutentificacaoService } from '../services/autentificacao';
 
 @Component({
@@ -18,7 +18,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private autenticacaoService: AutentificacaoService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.form = this.fb.group({
       nome: ['', Validators.required],
@@ -33,10 +34,12 @@ export class LoginComponent {
     }
 
     const { nome, senha } = this.form.value;
+    
     this.autenticacaoService.login(nome, senha).subscribe(sucesso => {
       if (sucesso) {
         this.erroLogin = false;
-        this.router.navigate(['/']);
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+        this.router.navigateByUrl(returnUrl);
       } else {
         this.erroLogin = true;
       }

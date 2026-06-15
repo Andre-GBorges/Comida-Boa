@@ -32,14 +32,13 @@ export class AdicionarRestauranteComponent implements OnInit {
       localizacao: ['', Validators.required],
       tipo: ['', Validators.required],
       sobreNos: [''],
-      menuFoto: [''],
-      nota: ['', Validators.required],
+      nota: [0, [Validators.required, Validators.min(1)]],
       comentario: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    // só usuários logados podem cadastrar (precisa "assinar" a avaliação)
+
     if (!this.autenticacaoService.isLogado()) {
       this.router.navigate(['/login']);
     }
@@ -59,15 +58,13 @@ export class AdicionarRestauranteComponent implements OnInit {
       return;
     }
 
-    const { nome, foto, localizacao, tipo, sobreNos, menuFoto, nota, comentario } = this.form.value;
+    const { nome, foto, localizacao, tipo, sobreNos, nota, comentario } = this.form.value;
 
     const novoRestaurante = {
       nome, foto, localizacao, tipo,
-      sobreNos: sobreNos || '',
-      menuFoto: menuFoto || ''
+      sobreNos: sobreNos || ''
     };
 
-    // 1. cria o restaurante
     this.restaurantesService.create(novoRestaurante).subscribe({
       next: (restauranteCriado) => {
         const novaAvaliacao = {
@@ -79,7 +76,6 @@ export class AdicionarRestauranteComponent implements OnInit {
           data: new Date().toISOString().split('T')[0]
         };
 
-        // 2. cria a avaliacao vinculada ao restaurante recem-criado
         this.avaliacoesService.create(novaAvaliacao).subscribe({
           next: () => this.router.navigate(['/restaurante', restauranteCriado.id]),
           error: () => this.erroGeral = true
@@ -88,4 +84,9 @@ export class AdicionarRestauranteComponent implements OnInit {
       error: () => this.erroGeral = true
     });
   }
+  
+  selecionarNota(nota: number): void {
+        this.form.patchValue({ nota });
+        this.form.get('nota')?.markAsTouched();
+      }
 }

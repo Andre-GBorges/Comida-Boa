@@ -49,10 +49,7 @@
       <textarea class="form-control" formControlName="sobreNos" rows="3"></textarea>
     </div>
 
-    <div class="mb-3">
-      <label class="form-label">Foto do menu (opcional, URL)</label>
-      <input type="text" class="form-control" formControlName="menuFoto" placeholder="https://...">
-    </div>
+  
 
     <hr>
 
@@ -61,15 +58,15 @@
 
     <div class="mb-3">
       <label class="form-label">Nota *</label>
-      <select class="form-select" formControlName="nota">
-        <option value="" disabled>Selecione...</option>
-        <option value="1">1 - Péssimo</option>
-        <option value="2">2 - Ruim</option>
-        <option value="3">3 - Regular</option>
-        <option value="4">4 - Bom</option>
-        <option value="5">5 - Excelente</option>
-      </select>
-      <div class="text-danger" *ngIf="form.get('nota')?.invalid && form.get('nota')?.touched">
+      <div class="d-flex gap-1">
+        <button type="button" *ngFor="let valor of [1,2,3,4,5]"
+                class="btn btn-link p-0 border-0"
+                (click)="selecionarNota(valor)">
+          <i class="bi fs-2"
+            [ngClass]="form.value.nota >= valor ? 'bi-star-fill text-warning' : 'bi-star text-muted'"></i>
+        </button>
+      </div>
+      <div class="text-danger mt-1" *ngIf="form.get('nota')?.invalid && form.get('nota')?.touched">
         Selecione uma nota.
       </div>
     </div>
